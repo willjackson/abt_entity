@@ -1,0 +1,13 @@
+name = Access by Term (ABT) - Entity
+description = ABT controls access based on relationship between node->term<-user.  Works with Entity Term References.
+core = 7.x
+php = 5.x
+package = Access control
+files[] = abt_entity.module
+files[] = abteutils.inc
+files[] = abt_entity.test
+dependencies[] = entityreference
+dependencies[] = entity
+dependencies[] = taxonomy
+dependencies[] = node
+dependencies[] = field
