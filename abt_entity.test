@@ -12,7 +12,7 @@ class ABTWebTestCase extends DrupalWebTestCase {
   protected $field_instances = array();
 
   function setUp() {
-    parent::setUp('abt');
+    parent::setUp('abt_entity');
   }
   
   /* Partial setup */
@@ -304,7 +304,7 @@ class ABTPermissionFieldTestCase extends ABTWebTestCase {
       $d = $combos[$i]['d'];
       $this->postFieldSettings($this->content_type->type, $this->field_instances['node'][$j], $v, $u, $d);
       $expect = (int) !(!$v && !$u && !$d);
-      $query = db_select('abt_map', 'a');
+      $query = db_select('abt_entity_map', 'a');
       $query->fields('a')
         ->condition('field_name', $this->field_instances['node'][$j]['field_name'],'=')
         ->condition('ctrl_view_access',   $v, '=')
@@ -364,8 +364,8 @@ class ABTPermissionGrantsTestCase extends ABTWebTestCase {
       $expect_map = array();
       for($i = 0; $i < count($this->terms); $i++) {
       
-        db_delete('abt_map')->execute(); // clean slate (for good measure)
-        db_insert('abt_map')
+        db_delete('abt_entity_map')->execute(); // clean slate (for good measure)
+        db_insert('abt_entity_map')
           ->fields(array(
             'field_name' => $field_name,  
             'ctrl_view_access' => $v,

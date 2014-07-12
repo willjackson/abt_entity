@@ -1,6 +1,6 @@
 <?php
 /**
- * @file abt.install
+ * @file abt_entity.install
  * Install, update and uninstall functions for the ABT module.
  */
 
